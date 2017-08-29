@@ -73,7 +73,9 @@ $('#getPlaylistBtn').click(function (event) {
     $results.empty();
 
     for (const track of playlist) {
-        let $item = $('<li class="list-group-item">').text(track.track);
+        let $anchor = $('<a>').text(track.artist + ' - ' + track.track);
+        $anchor.attr('href', track.url)
+        let $item = $('<li class="list-group-item">').append($anchor);
 
         $results.append($item)
     }
